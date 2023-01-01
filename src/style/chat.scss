@@ -1,0 +1,39 @@
+@mixin mobile{
+    @media screen and (max-width:480px){
+        @content;
+    }
+}
+@mixin tablet{
+    @media screen and (max-width:768px){
+        @content;
+    }
+}
+@mixin laptop{
+    @media screen and (max-width:1200px){
+        @content;
+    }
+}
+.chat{
+    flex: 2;
+    border-right: 1px solid #3e3c61;
+    .chatInfo{
+        height: 50px;
+        background-color: #5d5b8d;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        color: lightgray;
+    }
+
+    .chatIcons{
+        display: flex;
+        gap: 10px;
+
+        img{
+            height: 24px;
+            cursor: pointer;
+        }
+    }
+}
+
