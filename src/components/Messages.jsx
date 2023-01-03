@@ -19,11 +19,11 @@ const Messages = () => {
         unsub();
     }; 
 }, [data.chatId]);
- 
+
   return (
     <div className="messages">
-        {messages.map((m) => (
-          <Message message={m}  key={m.id}/>
+        {messages.map((m , index) => (
+          <Message message= {m} previousMessage={messages[index - 1]} key={m.id}/>
         ))}
     </div>
   )

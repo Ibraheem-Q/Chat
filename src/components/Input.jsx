@@ -17,6 +17,7 @@ const Input = () => {
   const { currentUser} = useContext(AuthContext);
   const {data } = useContext(ChatContext);
 
+  
   const handleSend = async () => {
     if(img){
       const storageRef = ref(storage , uuid());
@@ -70,9 +71,14 @@ const Input = () => {
     setText("")
     setImg(null)
   };
+
+  const handleKey = (e) => {
+    e.code === "Enter" && handleSend();
+  };
+
   return (
     <div className="Input">
-      <input type="text" placeholder='Schreib was ... ' onChange={e=>setText(e.target.value)} value={text}></input>
+      <input type="text" placeholder='Schreib was ... ' onKeyDown={handleKey} onChange={e=>setText(e.target.value)} value={text}></input>
       <div className="send">
         <img src={attachment} alt=''></img>
         <input type="file" style={{display:"none"}} id="file" onChange={e=>setImg(e.target.files[0])}></input>

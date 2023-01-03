@@ -12,8 +12,8 @@ function App() {
   const {currentUser} = useContext(AuthContext)
 
   const PretectedRoute = ({children}) =>{
- 
-    if(!currentUser){
+    console.log("App start")
+    if(!currentUser || currentUser == null){
       
       return <Navigate to="/login"></Navigate>
     }
@@ -23,16 +23,16 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/">
+
           <Route
-            path="/"
+            path="/Chat"
             element={
               <PretectedRoute>
                 <Home />
               </PretectedRoute>}> </Route>
-          <Route path='login' element={<Login />}> </Route>
+          <Route path='/login' element={<Login />}> </Route>
           <Route path='register' element={<Register />}></Route>
-        </Route>
+      
       </Routes>
     </BrowserRouter>
   );
